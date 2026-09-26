@@ -11,6 +11,7 @@ import { GALLERY_PHOTOS } from './data/photos';
 import { PhotoItem } from './types';
 import { fetchAllGalleryPhotos } from './lib/supabasePhotos';
 import { supabase } from './lib/supabase';
+import defaultHeroImage from './assets/hero-lamborghini.jpg';
 
 export default function App() {
   const [photos, setPhotos] = useState<PhotoItem[]>(GALLERY_PHOTOS);
@@ -103,7 +104,7 @@ export default function App() {
         <Hero
           onExploreGallery={() => scrollToSection('galerie')}
           onOpenBooking={() => scrollToSection('kontakt')}
-          backgroundImage={'/assets/hero-lamborghini.jpg'}
+          backgroundImage={defaultHeroImage}
         />
 
         {/* 2. Über uns / Intro */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import defaultHeroImage from '../assets/hero-lamborghini.jpg';
 
 interface HeroProps {
   onExploreGallery: () => void;
@@ -10,7 +11,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ 
   onExploreGallery, 
   onOpenBooking, 
-  backgroundImage = '/assets/hero-lamborghini.jpg' 
+  backgroundImage = defaultHeroImage 
 }) => {
   const [imgError, setImgError] = React.useState(false);
 
@@ -18,7 +19,7 @@ export const Hero: React.FC<HeroProps> = ({
     setImgError(false);
   }, [backgroundImage]);
 
-  const activeImage = (!imgError && backgroundImage) ? backgroundImage : '/assets/hero-lamborghini.jpg';
+  const activeImage = (!imgError && backgroundImage) ? backgroundImage : defaultHeroImage;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#08090d] text-center px-4 overflow-hidden">
