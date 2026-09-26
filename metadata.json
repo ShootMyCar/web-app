@@ -1,0 +1,6 @@
+{
+  "name": "SOL & ILAY PHOTOGRAPHY | Shoot my Car",
+  "description": "Professionelle Automobil-Fotografie von Sol & Ilay – Rollershots, Events & Detailaufnahmen in höchster Präzision.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
