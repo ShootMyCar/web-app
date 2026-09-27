@@ -12,5 +12,6 @@ export const GALLERY_PHOTOS: PhotoItem[] = [
     photographer: 'Sol & Ilay',
     location: 'Industriegelände',
     specs: 'Scissor Doors Open • Raw Automotive Art',
+    isBest: true,
   },
 ];

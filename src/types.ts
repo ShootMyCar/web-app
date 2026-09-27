@@ -1,6 +1,6 @@
-export type GalleryCategory = 'all' | 'rollershots' | 'events' | 'details';
+export type GalleryCategory = 'best' | 'rollershots' | 'events' | 'details' | 'all';
 
-export type PhotoCategory = 'rollershots' | 'events' | 'details' | 'hintergrund';
+export type PhotoCategory = 'rollershots' | 'events' | 'details' | 'hintergrund' | 'best';
 
 export interface PhotoItem {
   id: string;
@@ -11,6 +11,9 @@ export interface PhotoItem {
   photographer: string;
   location?: string;
   specs?: string;
+  isBest?: boolean;
+  eventName?: string;
+  eventDate?: string;
 }
 
 export interface BookingFormData {

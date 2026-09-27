@@ -100,6 +100,16 @@ export async function fetchAllGalleryPhotos(): Promise<PhotoItem[]> {
       if (filename) knownImageUrls.add(filename);
 
       const category = parseCategory(item.category);
+      const isBest = Boolean(
+        item.is_best === true ||
+        item.best === true ||
+        item.is_featured === true ||
+        item.featured === true ||
+        item.highlight === true ||
+        String(item.category).toLowerCase().includes('best')
+      );
+      const eventName = item.event_name || item.event || item.eventName || item.event_title || item.meet || undefined;
+      const eventDate = item.event_date || item.eventDate || item.date || undefined;
 
       photos.push({
         id: String(item.id || `photo-${Math.random()}`),
@@ -110,6 +120,9 @@ export async function fetchAllGalleryPhotos(): Promise<PhotoItem[]> {
         photographer: item.photographer || 'Sol & Ilay',
         location: item.location || '',
         specs: item.specs || '',
+        isBest,
+        eventName,
+        eventDate,
       });
     }
   }

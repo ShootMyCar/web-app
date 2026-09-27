@@ -16,6 +16,7 @@ import defaultHeroImage from './assets/hero-lamborghini.jpg';
 export default function App() {
   const [photos, setPhotos] = useState<PhotoItem[]>(GALLERY_PHOTOS);
   const [activePhoto, setActivePhoto] = useState<PhotoItem | null>(null);
+  const [activePhotoList, setActivePhotoList] = useState<PhotoItem[]>([]);
   const [showImpressum, setShowImpressum] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const isFetchingRef = useRef(false);
@@ -115,7 +116,14 @@ export default function App() {
           photos={photos}
           isSyncing={isSyncing}
           onRefresh={() => loadPhotos(true)}
-          onSelectPhoto={(photo) => setActivePhoto(photo)}
+          onSelectPhoto={(photo, list) => {
+            setActivePhoto(photo);
+            if (list && list.length > 0) {
+              setActivePhotoList(list);
+            } else {
+              setActivePhotoList(photos);
+            }
+          }}
         />
 
         {/* 4. Kontakt / Buchungsformular */}
@@ -128,7 +136,7 @@ export default function App() {
       {/* Fullscreen Lightbox */}
       <LightboxModal
         photo={activePhoto}
-        photos={photos}
+        photos={activePhotoList.length > 0 ? activePhotoList : photos}
         isOpen={Boolean(activePhoto)}
         onClose={() => setActivePhoto(null)}
         onSelectPhoto={(photo) => setActivePhoto(photo)}
